@@ -1,5 +1,4 @@
 // src/App.tsx
-import React from 'react';
 import { useTodos } from './hooks/useTodos';
 import { TodoForm } from './components/TodoForm';
 import { TodoList } from './components/TodoList';
