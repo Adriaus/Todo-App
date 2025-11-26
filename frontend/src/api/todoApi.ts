@@ -1,26 +1,24 @@
 // src/api/todoApi.ts
-import axios from 'axios';
+import { apiClient } from './authApi';
 import { Todo, CreateTodoRequest, UpdateTodoRequest } from '../types/todo';
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
 export const todoApi = {
   async getAll(): Promise<Todo[]> {
-    const response = await axios.get<Todo[]>(`${API_URL}/todos`);
+    const response = await apiClient.get('/api/todos');
     return response.data;
   },
 
   async create(data: CreateTodoRequest): Promise<Todo> {
-    const response = await axios.post<Todo>(`${API_URL}/todos`, data);
+    const response = await apiClient.post('/api/todos', data);
     return response.data;
   },
 
   async update(id: number, data: UpdateTodoRequest): Promise<Todo> {
-    const response = await axios.put<Todo>(`${API_URL}/todos/${id}`, data);
+    const response = await apiClient.put(`/api/todos/${id}`, data);
     return response.data;
   },
 
   async delete(id: number): Promise<void> {
-    await axios.delete(`${API_URL}/todos/${id}`);
+    await apiClient.delete(`/api/todos/${id}`);
   }
 };

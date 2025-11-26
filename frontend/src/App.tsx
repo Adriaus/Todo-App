@@ -4,12 +4,14 @@ import { TodoForm } from './components/TodoForm';
 import { TodoList } from './components/TodoList';
 import { ErrorMessage } from './components/ErrorMessage';
 import { TodoStats } from './components/TodoStats';
+import { Navbar } from './components/Navbar';
 
 function App() {
   const { todos, loading, error, createTodo, toggleTodo, deleteTodo } = useTodos();
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 py-8 px-4">
+       <Navbar />
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
