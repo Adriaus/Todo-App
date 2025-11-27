@@ -5,6 +5,8 @@ import { Todo } from '../../types/todo';
 export const createTodo = async (
   title: string,
   description: string,
+  assigneeId: number | undefined,
+  priority: string | undefined,
   todos: Todo[],
   setTodos: (todos: Todo[]) => void,
   setError: (msg: string) => void
@@ -12,7 +14,9 @@ export const createTodo = async (
   try {
     const newTodo = await todoApi.create({
       title: title.trim(),
-      description: description.trim() || null
+      description: description.trim() || null,
+      priority: priority || 'medium',
+      assignee_id: assigneeId
     });
 
     setTodos([...todos, newTodo]);

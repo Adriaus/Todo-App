@@ -20,8 +20,8 @@ export const useTodos = () => {
     todos,
     loading,
     error,
-    createTodo: (title: string, desc: string) =>
-      createTodo(title, desc, todos, setTodos, setError),
+    createTodo: (title: string, desc: string, assigneeId?: number, priority?: string) =>
+      createTodo(title, desc, assigneeId, priority, todos, setTodos, setError),
     toggleTodo: (id: number, completed: boolean) =>
       toggleTodo(id, completed, todos, setTodos, setError),
     deleteTodo: (id: number) =>
